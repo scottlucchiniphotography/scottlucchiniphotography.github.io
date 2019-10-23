@@ -3,7 +3,7 @@ var galleryLoaded = false;
 var imageList = ["abst_1.jpg","abst_2.jpg","arch_1.jpg","arch_2.jpg","arch_3.jpg","arch_4.jpg","chi_1.jpg","chi_2.jpg","gb_1.jpg","gb_2.jpg","gb_3.jpg","irl_1.jpg","it_1.jpg","skye_1.jpg","skye_2.jpg","skye_3.jpg","skye_4.jpg","snow_1.jpg"];
 
 $( function(e) {
-	
+
 	setTimeout(function() {
 		if (!loaded) {
 			$('.loader').animate({
@@ -14,16 +14,16 @@ $( function(e) {
 			);
 		}
 	}, 50);
-	
+
 	$('#home-link').click(function(e) {
 	    showHome();
 	});
-	
+
 	$('.nav-link').click(function(e) {
       var link = e.target.getAttribute("data");
       showBody(link);
 	});
-	
+
 	$(document).scroll(function(e) {
 		if ($(document).width() < 800) {
 			// Blur the header image on scroll when on mobile (and make transparent)
@@ -56,7 +56,7 @@ $( function(e) {
 		  setHeaderBgFull(alphaval);
 	  }
 	});
-	
+
 	// Unblur the header if the window is resized
 	$(window).resize(function(e) {
 		if ($(document).width() > 800) {
@@ -66,7 +66,7 @@ $( function(e) {
 			setHeaderBgFull(0);
 		}
 	});
-	
+
 	// Show shadowbox for images
 	$('#gallery .thumb').click(function(e) {
 		var bgImageVal = $(e.target).css("background-image");
@@ -98,7 +98,7 @@ $( function(e) {
     	customHide('#gallery-popup');
     }
 	});
-	
+
 });
 
 function checkGPLoaded(gp) {
@@ -176,7 +176,7 @@ function loadHash() {
   }
 }
 
-function customShow(obj) {
+function customShow(obj, callback) {
 	if (obj == "#gallery" && !galleryLoaded) {
 		loadGallery();
 		return;
@@ -185,7 +185,9 @@ function customShow(obj) {
 	$(obj).animate({
       opacity: 1
     }, 500, function() {
-      
+			if (callback != null) {
+      	callback();
+      }
     }
   );
 }
@@ -239,11 +241,11 @@ function customHide(obj, callback) {
 }
 
 function showBody(link) {
-		hideVisibleDivs(link, 
+		$('html, body').animate({scrollTop : 0},700);
+		hideVisibleDivs(link,
 			function() {
 				customShow("#"+link);
 		    changePage(link);
-		    window.scrollTo(0,0);
 	    }
     );
 }
