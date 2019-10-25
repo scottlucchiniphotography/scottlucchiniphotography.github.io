@@ -70,7 +70,7 @@ $( function(e) {
 	// Show shadowbox for images
 	$('#gallery .thumb').click(function(e) {
 		var bgImageVal = $(e.target).css("background-image");
-		var srcVal = bgImageVal.substring(bgImageVal.indexOf("http://"), bgImageVal.indexOf(".jpg")+4);
+		var srcVal = bgImageVal.substring(bgImageVal.search("https?://"), bgImageVal.indexOf(".jpg")+4);
 		$('#gallery-popup img').attr("src", srcVal);
 		var gp = $('#gallery-popup');
 		if ($(e.target).hasClass("portrait")) {
