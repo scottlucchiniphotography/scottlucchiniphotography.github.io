@@ -1,6 +1,6 @@
 var loaded = false;
 var galleryLoaded = false;
-var imageList = ["abst_1.jpg","abst_2.jpg","arch_1.jpg","arch_2.jpg","arch_3.jpg","arch_4.jpg","chi_1.jpg","chi_2.jpg","gb_1.jpg","gb_2.jpg","gb_3.jpg","irl_1.jpg","it_1.jpg","skye_1.jpg","skye_2.jpg","skye_3.jpg","skye_4.jpg","snow_1.jpg"];
+var imageList = ["abst_1.jpg","abst_2.jpg","arch_1.jpg","arch_2.jpg","arch_3.jpg","arch_4.jpg","arch_5.jpg","arch_6.jpg","chi_1.jpg","chi_2.jpg","gb_1.jpg","gb_2.jpg","gb_3.jpg","irl_1.jpg","it_1.jpg","skye_1.jpg","skye_2.jpg","skye_3.jpg","skye_4.jpg","snow_1.jpg"];
 
 $( function(e) {
 
